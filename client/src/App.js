@@ -1,6 +1,9 @@
 import React from 'react';
 import { NavLink, Route, withRouter } from 'react-router-dom';
 
+import UserList from './users/UserList';
+import Login from './auth/Login';
+
 import './App.css';
 
 class App extends React.Component {
