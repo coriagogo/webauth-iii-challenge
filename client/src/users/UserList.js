@@ -5,7 +5,7 @@ import axios from 'axios';
 
 class UserList extends React.Component {
   state = {
-    users: [],
+    users: []
   };
 
   render() {
@@ -15,10 +15,11 @@ class UserList extends React.Component {
         <h2>Our Users</h2>
 
         <ul>
-          {this.state.users.map(u => (
-            <li key={u.id}>{u.username}</li>
+          {this.state.users.map(user => (
+            <li key={user.id}>{user.username}</li>
           ))}
         </ul>
+       
       </>
     );
   }
@@ -32,10 +33,10 @@ class UserList extends React.Component {
       })
       .then(res => {
         console.log('users', res.data);
-        this.setState(() => ({ users: res.data }));
+        this.setState(() => ({ users: res.data.users }));
       })
-      .catch(({ response }) => {
-        console.error('users error', response);
+      .catch(({ error }) => {
+        console.error('users error', error);
       })
   }
 }
